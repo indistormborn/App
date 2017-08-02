@@ -1,0 +1,10 @@
+﻿Build started 02/08/2017 14:26:28.
+     1>Project "C:\Users\indiara.menegat\Documents\Visual Studio 2010\Projects\Application\Application\Application.vcxproj" on node 2 (ClCompile target(s)).
+     1>ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MyCmd.cpp
+         MyCmd.cpp
+     1>Done Building Project "C:\Users\indiara.menegat\Documents\Visual Studio 2010\Projects\Application\Application\Application.vcxproj" (ClCompile target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.22
