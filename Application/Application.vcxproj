@@ -81,10 +81,12 @@
     <ClCompile Include="MyUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ListStructure.h" />
     <ClInclude Include="MyAPP.h" />
     <ClInclude Include="MyCmd.h" />
     <ClInclude Include="MyData.h" />
     <ClInclude Include="MyUI.h" />
+    <ClInclude Include="Nodo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

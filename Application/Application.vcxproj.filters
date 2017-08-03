@@ -27,9 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MyAPP.cpp">
       <Filter>Source Files\App</Filter>
     </ClCompile>
@@ -41,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="MyUI.cpp">
       <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MyUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListStructure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
