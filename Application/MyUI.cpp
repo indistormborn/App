@@ -3,7 +3,7 @@
 
 int MyUI::getMenuOption(int message)
 {
-   std::string msg= insMsgs.find(message)->second;
+   std::string msg= getMessage(message);
    int t;
    std::cout << msg;
    std::cin >> t;
@@ -11,23 +11,24 @@ int MyUI::getMenuOption(int message)
    return t;
 }
 
+int MyUI::getMenuOption()
+{
+   int t;
+   std::cout << "Entre com a opcao: ";
+   std::cin >> t;
+   std::cout << std::endl;
+   return t;
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-void MyUI::welcome()
-{
-   std::cout << "------------------- BEM-VINDO -------------------" << std::endl;
-   std::cout << "Deseja gerar as MyLists? [s/n]" << std::endl;
-   std::cout<<std::endl;
-  
-
-}
 
 void MyUI::mainMenu()
 {
    std::cout << "--------------- MENU PRINCIPAL ---------------"<< std::endl;
    std::cout << "|                                            |"<<std::endl;
-   std::cout << "| 1- Configurar Primeira Lista               |"<<std::endl;
-   std::cout << "| 2- Configurar Segunda Lista                |"<<std::endl;
+   std::cout << "| 11- Configurar Primeira Lista              |"<<std::endl;
+   std::cout << "| 22- Configurar Segunda Lista               |"<<std::endl;
    std::cout << "| 100- Fechar aplicacao                      |"<< std::endl;
    std::cout << "|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |"<<std::endl;
    
@@ -104,3 +105,5 @@ std::string MyUI::getMessage(int value){
 
    return "mensagem n encontrada \n";
 }
+
+void MyUI::print(std::string s) { std::cout << s << std::endl; }

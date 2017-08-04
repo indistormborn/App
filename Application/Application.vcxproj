@@ -74,6 +74,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CmdAdd.cpp" />
+    <ClCompile Include="CmdClear.cpp" />
+    <ClCompile Include="CmdConcatenate.cpp" />
+    <ClCompile Include="CmdCreateLists.cpp" />
+    <ClCompile Include="CmdDel.cpp" />
+    <ClCompile Include="CmdGet.cpp" />
+    <ClCompile Include="CmdPrint.cpp" />
+    <ClCompile Include="CmdSearch.cpp" />
+    <ClCompile Include="CmdSet.cpp" />
+    <ClCompile Include="CmdShowMainMenu.cpp" />
+    <ClCompile Include="CmdShowMessages.cpp" />
+    <ClCompile Include="CmdShowOptionMenu.cpp" />
+    <ClCompile Include="CmdSort.cpp" />
+    <ClCompile Include="ListStructure.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyAPP.cpp" />
     <ClCompile Include="MyCmd.cpp" />
@@ -81,6 +95,19 @@
     <ClCompile Include="MyUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CmdAdd.h" />
+    <ClInclude Include="CmdClear.h" />
+    <ClInclude Include="CmdConcatenate.h" />
+    <ClInclude Include="CmdCreateLists.h" />
+    <ClInclude Include="CmdDel.h" />
+    <ClInclude Include="CmdGet.h" />
+    <ClInclude Include="CmdPrint.h" />
+    <ClInclude Include="CmdSearch.h" />
+    <ClInclude Include="CmdSet.h" />
+    <ClInclude Include="CmdShowMainMenu.h" />
+    <ClInclude Include="CmdShowMessages.h" />
+    <ClInclude Include="CmdShowOptionMenu.h" />
+    <ClInclude Include="CmdSort.h" />
     <ClInclude Include="ListStructure.h" />
     <ClInclude Include="MyAPP.h" />
     <ClInclude Include="MyCmd.h" />

@@ -31,6 +31,7 @@ public:
    Nodo* getLast() {return actual->getLast();}
    Nodo* getFirst() {return actual->getFirst();}
 
+   void createLists();
 
 };
 

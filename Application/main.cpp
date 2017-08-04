@@ -1,9 +1,11 @@
 //entry point to the application
 #include <iostream>
 #include "MyUI.h"
+#include "MyAPP.h"
+#include "ListStructure.h"
 
 int main()
 {  
-   MyUI *ui = new MyUI();
-   std::cout << ui->getMessage(23);
+   MyAPP* app = new MyAPP();
+   app->run();
 }

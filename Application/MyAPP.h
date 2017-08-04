@@ -9,14 +9,17 @@ class MyCmd;
 class MyAPP
 {
 private:
+   MyUI *ui;
+   MyData *d;
+   MyCmd *cmd;
+
    bool cmdExecute(int menuOption);
-   MyUI* ui;
-   MyData* d;
-   MyCmd* cActual;
 
 public:
-   ~MyAPP(){}
-   MyAPP(){}
+   ~MyAPP();
+   MyAPP();
+   
+   void run();
 };
 
 #endif INCLUDED_MYAPP_H
