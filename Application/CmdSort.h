@@ -7,7 +7,7 @@ class CmdSort : public MyCmd
 {
 public:
    virtual ~CmdSort(){}
-   virtual void execute(MyData& d, MyUI& ui);
+   virtual void execute(MyData* _d, MyUI* _ui);
 };
 
 #endif //INCLUDED_CMDSORT_H

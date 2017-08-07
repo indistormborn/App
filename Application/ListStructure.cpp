@@ -34,7 +34,6 @@ void ListStructure::addBegin(int v)
    size++;
 }
 
-
 void ListStructure::add(int v, int pos)
 {
    Nodo *position= first;
@@ -100,7 +99,6 @@ void ListStructure::set(int v, int pos)
       exit(0);
 }
 
-
 void ListStructure::clear()
 {
    Nodo *aux;
@@ -114,7 +112,6 @@ void ListStructure::clear()
    size= 0;
    first= last= nullptr;
 }
-
 
 void ListStructure::bubblesort()
 {
@@ -190,8 +187,10 @@ void ListStructure::concatenate(ListStructure* l){
       if( (first != nullptr) && (l->getFirst() != nullptr) ){
          last->setNext(l->getFirst());
          last= l->getLast();
+         size= size + l->getSize();
          }
-      l->clear();
+      l->setFirst(nullptr);
+      l->setLast(nullptr);
    }   
 }
 
@@ -207,6 +206,24 @@ std::string ListStructure::listToString()
       if(n->getNext() == nullptr)
          break;
       n= n->getNext();
+   }
+     
+   
+   return ss.str();
+}
+
+std::string ListStructure::listToStringBack()
+{
+   Nodo* n= last;
+   std::stringstream ss;
+   for (int i= size; i > 0; i++){
+      int v= n->getValue();
+      
+      ss<<v<<", ";
+      
+      if(n->getPrev() == nullptr)
+         break;
+      n= n->getPrev();
    }
    
    return ss.str();

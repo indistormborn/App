@@ -17,6 +17,7 @@ int MyUI::getMenuOption()
    std::cout << "Entre com a opcao: ";
    std::cin >> t;
    std::cout << std::endl;
+   currentOption= t;
    return t;
 }
 

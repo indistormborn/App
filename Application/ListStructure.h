@@ -16,6 +16,8 @@ protected:
 
    void addEnd(int v);
    void addBegin(int v);
+   Nodo* searchForward(int pos);
+   Nodo* searchBackward(int pos);
 
 public:
    ~ListStructure(){ clear(); }
@@ -42,11 +44,10 @@ public:
    void clear();
    void concatenate(ListStructure*);
 
-   Nodo* searchForward(int pos);
-   Nodo* searchBackward(int pos);
    Nodo* search(int pos);
 
    std::string listToString();
+   std::string listToStringBack();
 };
 
 #endif //INCLUDED_LISTSTRUCTURE_H

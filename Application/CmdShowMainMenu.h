@@ -1,8 +1,14 @@
 #pragma once
-class CmdShowMainMenu
+#ifndef INCLUDED_CMDSHOWMAINMENU_H
+#define INCLUDED_CMDSHOWMAINMENU_H
+#include "MyCmd.h"
+
+class CmdShowMainMenu : public MyCmd
 {
 public:
-   CmdShowMainMenu(void);
-   ~CmdShowMainMenu(void);
+   virtual ~CmdShowMainMenu(){}
+
+   virtual void execute(MyData* _d, MyUI* _ui);
 };
 
+#endif //INCLUDED_CMDSHOWMAINMENU_H

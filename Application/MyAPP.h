@@ -14,6 +14,7 @@ private:
    MyCmd *cmd;
 
    bool cmdExecute(int menuOption);
+   bool cmdMainExecute(int menuOption);
 
 public:
    ~MyAPP();

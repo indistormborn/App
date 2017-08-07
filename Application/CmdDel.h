@@ -7,7 +7,7 @@ class CmdDel : public MyCmd
 {
 public:
    virtual ~CmdDel(){}
-   virtual void execute(MyData& d,MyUI& ui);
+   virtual void execute(MyData* d, MyUI* ui);
 };
 
 #endif //INCLUDED_CMDDEL_H

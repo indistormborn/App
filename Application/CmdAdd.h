@@ -8,7 +8,7 @@ class CmdAdd : public MyCmd
 public:
    virtual ~CmdAdd(){}
 
-   virtual void execute(MyData& d, MyUI& ui);
+   virtual void execute(MyData* _d, MyUI* _ui);
 
 };
 

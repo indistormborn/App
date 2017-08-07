@@ -1,11 +1,8 @@
 #include "CmdShowMainMenu.h"
 
 
-CmdShowMainMenu::CmdShowMainMenu(void)
+void CmdShowMainMenu::execute(MyData* d, MyUI* ui)
 {
-}
-
-
-CmdShowMainMenu::~CmdShowMainMenu(void)
-{
+   ui->clearScreen();
+   ui->mainMenu();
 }

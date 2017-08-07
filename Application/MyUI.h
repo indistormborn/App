@@ -12,6 +12,8 @@ private:
    std::map<int, std::string> insMsgs;
    std::map<int, std::string> infMsgs;
 
+   int currentOption;
+
    void createErrorMessages();
    void createInsertMessages();
    void createInfoMessages();
@@ -34,7 +36,8 @@ public:
    
    int getMenuOption(int message);
    int getMenuOption();
-   
+   int getCurrentOption() { return currentOption; }
+
    void mainMenu();
    void manipMenu();
 

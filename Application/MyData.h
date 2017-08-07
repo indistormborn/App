@@ -15,13 +15,14 @@ private:
 public:
    ~MyData(){}
    MyData(){
-      list1= new ListStructure();
-      list2= new ListStructure();
+      createLists();
       actual= nullptr;
    }
 
-   ListStructure* getActualList();
-   void setActualList(ListStructure* list);
+   ListStructure* getActualList() { return actual; }
+   ListStructure* getList1() { return list1; }
+   ListStructure* getList2() { return list2; }
+   void setActualList(ListStructure* list) { actual = list; }
 
    void setLast(Nodo* nodo) {actual->setLast(nodo);}
    void setFirst(Nodo* nodo) {actual->setFirst(nodo);}

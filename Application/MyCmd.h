@@ -6,17 +6,13 @@
 
 class MyCmd
 {
-private:
-   MyData& d;
-   MyUI& ui;
 
 public:
-   ~MyCmd(){}
-   MyCmd();
-   MyCmd(MyData& _d,MyUI& _ui) : d(_d),ui(_ui) {}
-   MyCmd(int command);
+   virtual ~MyCmd(){}
+   MyCmd(){};
+   MyCmd(int command){}
    
-   virtual void execute (MyData& d, MyUI& ui);
+   virtual void execute (MyData* d, MyUI* ui);
 };
 
 #endif //INCLUDED_MYCMD_

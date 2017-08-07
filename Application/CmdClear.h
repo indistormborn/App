@@ -8,7 +8,7 @@ class CmdClear : public MyCmd
 public:
    virtual ~CmdClear(){}
 
-   virtual void execute(MyData& d,MyUI& ui);
+   virtual void execute(MyData* d,MyUI* ui);
 };
 
 #endif //INCLUDED_CMDCLEAR_H

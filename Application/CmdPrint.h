@@ -7,7 +7,7 @@ class CmdPrint : public MyCmd
 {
 public:
    virtual ~CmdPrint(){}
-   virtual void execute(MyData& d,MyUI& ui);
+   virtual void execute(MyData* d, MyUI* ui);
 };
 
 #endif //INCLUDED_CMDPRINT_H
