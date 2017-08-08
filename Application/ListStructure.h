@@ -1,6 +1,7 @@
 #pragma once
 #ifndef INCLUDED_LISTSTRUCTURE_H
 #define INCLUDED_LISTSTRUCTURE_H
+
 #include <iostream>
 
 class Nodo;
@@ -20,17 +21,16 @@ protected:
    Nodo* searchBackward(int pos);
 
 public:
-   ~ListStructure(){ clear(); }
+   ~ListStructure() { clear(); }
    ListStructure(){
-      last= nullptr;
-      first= nullptr;
       size= 0;   
+      last= first= nullptr;
    }
    
-   void setLast(Nodo* nodo) {last= nodo;}
-   void setFirst(Nodo* nodo) {first= nodo;}
+   void setLast(Nodo* nodo) { last= nodo; }
+   void setFirst(Nodo* nodo) { first= nodo; }
   
-   int getSize() {return size;}
+   int getSize() { return size; }
 
    Nodo* getLast() {return last;}
    Nodo* getFirst() {return first;}
@@ -38,7 +38,6 @@ public:
    void add(int v) { addEnd(v); }
    void add(int v, int pos);
    void del(int pos);
-   void set(int v, int pos);
 
    void bubblesort();
    void clear();

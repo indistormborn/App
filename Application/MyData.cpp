@@ -2,7 +2,6 @@
 
 void MyData::createLists()
 {
-
    list1= new ListStructure();
    list2= new ListStructure();
 

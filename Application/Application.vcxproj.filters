@@ -104,9 +104,6 @@
     <ClInclude Include="CmdChooseList2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cmdheaders.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ListStructure.h">
       <Filter>Source Files\Data</Filter>
     </ClInclude>

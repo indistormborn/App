@@ -6,7 +6,7 @@
 class CmdChooseList1 : public MyCmd
 {
 public:
-   virtual ~CmdChooseList1(){}
+   virtual ~CmdChooseList1() {}
    
    virtual void execute(MyData* d, MyUI* ui);
 };

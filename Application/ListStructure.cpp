@@ -1,8 +1,10 @@
-#include "ListStructure.h"
-#include "Nodo.h"
 #include <ostream>
 #include <stdlib.h>
 #include <sstream>
+#include "Nodo.h"
+#include "ListStructure.h"
+
+/////////////////////////////////////////////////////////////////////////
 
 void ListStructure::addEnd(int v)
 {
@@ -84,20 +86,11 @@ void ListStructure::del(int pos)
       size--;
       delete n;
    }
-   else {
+   else 
       exit(0);
-   }
 }
 
-void ListStructure::set(int v, int pos)
-{
-   Nodo *n= search(pos);
-   
-   if(n != nullptr)
-      n->setValue(v);
-   else
-      exit(0);
-}
+/////////////////////////////////////////////////////////////////////////
 
 void ListStructure::clear()
 {
@@ -135,40 +128,56 @@ void ListStructure::bubblesort()
    }
 }
 
+void ListStructure::concatenate(ListStructure* l)
+{
+   Nodo *n= l->getFirst();
+
+   if (l != nullptr){
+      if ((first != nullptr) && (l->getFirst() != nullptr)) {
+         last->setNext(l->getFirst());
+         last= l->getLast();
+         size= size + l->getSize();
+      }
+      l->setFirst(nullptr);
+      l->setLast(nullptr);
+   }   
+}
+
+/////////////////////////////////////////////////////////////////////////
+
 Nodo * ListStructure::searchForward(int pos)
 {
-   Nodo *n= first;
+   Nodo *n= nullptr;
 
-   if ((pos <= size) || (pos != 0)) {
-      for (int i= 1; i < pos; i++){
-         if(n->getNext() == nullptr)
+   if ((pos <= size) && (pos > 0)) {
+      n= first;
+      for (int i= 1 ; i < pos ; i++) {
+         if (n->getNext() == nullptr)
             break;
          n= n->getNext();
       }
-   }
-   else
-      n= nullptr;   
-  
+   }   
+
    return n;
 }
 
-Nodo * ListStructure::searchBackward(int pos)
+Nodo* ListStructure::searchBackward(int pos)
 {
-   Nodo *n= last;
+   Nodo *n= nullptr;
 
-   if(pos <= size || pos != 0){
+   if ((pos <= size) && (pos > 0)){
+      n= last;
       for (int i= size; i > pos; i--){
          if(n->getPrev() == nullptr)
             break;
          n= n->getPrev();
-      }   
-   }else
-      n= nullptr;
+      }  
+   }
    
    return n;
 }
 
-Nodo * ListStructure::search(int pos)
+Nodo* ListStructure::search(int pos)
 {
    Nodo *n;
    int meio= size/2;
@@ -180,19 +189,7 @@ Nodo * ListStructure::search(int pos)
    return n;
 }
 
-void ListStructure::concatenate(ListStructure* l){
-  Nodo *n= l->getFirst();
-
-   if( l != nullptr ){
-      if( (first != nullptr) && (l->getFirst() != nullptr) ){
-         last->setNext(l->getFirst());
-         last= l->getLast();
-         size= size + l->getSize();
-         }
-      l->setFirst(nullptr);
-      l->setLast(nullptr);
-   }   
-}
+/////////////////////////////////////////////////////////////////////////
 
 std::string ListStructure::listToString()
 {
@@ -201,13 +198,13 @@ std::string ListStructure::listToString()
    for (int i= 0; i < size; i++){
       int v= n->getValue();
       
-      ss<<v<<", ";
+      ss << v << ", ";
       
-      if(n->getNext() == nullptr)
+      if (n->getNext() == nullptr)
          break;
+
       n= n->getNext();
    }
-     
    
    return ss.str();
 }

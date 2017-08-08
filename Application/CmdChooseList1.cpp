@@ -2,10 +2,7 @@
 
 void CmdChooseList1::execute(MyData* d, MyUI* ui)
 {
-   ListStructure* actual= d->getActualList();
-   ListStructure* firstList= d->getList1();
-   if(actual != firstList || actual == nullptr)
-      d->setActualList(firstList);
+   d->setActualList(d->getList1());
    
    ui->clearScreen();
    ui->manipMenu();

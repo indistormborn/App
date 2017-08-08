@@ -8,11 +8,11 @@ class MyCmd
 {
 
 public:
-   virtual ~MyCmd(){}
-   MyCmd(){};
-   MyCmd(int command){}
+   virtual ~MyCmd() {}
+   MyCmd() {}
+   MyCmd(int command) {}
    
-   virtual void execute (MyData* d, MyUI* ui);
+   virtual void execute (MyData* d, MyUI* ui) = 0;
 };
 
 #endif //INCLUDED_MYCMD_

@@ -97,7 +97,6 @@
     <ClInclude Include="CmdConcatenate.h" />
     <ClInclude Include="CmdChooseList1.h" />
     <ClInclude Include="CmdDel.h" />
-    <ClInclude Include="cmdheaders.h" />
     <ClInclude Include="CmdPrint.h" />
     <ClInclude Include="CmdShowMainMenu.h" />
     <ClInclude Include="CmdSort.h" />

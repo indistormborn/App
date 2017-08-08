@@ -3,9 +3,9 @@
 
 int MyUI::getMenuOption(int message)
 {
-   std::string msg= getMessage(message);
    int t;
-   std::cout << msg;
+
+   std::cout << getMessage(message);
    std::cin >> t;
    std::cout << std::endl;
    return t;
@@ -106,5 +106,5 @@ std::string MyUI::getMessage(int value){
 
    return "mensagem n encontrada \n";
 }
-
+/////////////////////////////////////////////////////////////////////////
 void MyUI::print(std::string s) { std::cout << s << std::endl; }

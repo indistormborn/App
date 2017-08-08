@@ -1,9 +1,10 @@
 #pragma once
+#ifndef INCLUDED_MYUI_H
+#define INCLUDED_MYUI_H
+
 #include <stdlib.h>
 #include <map>
 #include <string>
-#ifndef INCLUDED_MYUI_H
-#define INCLUDED_MYUI_H
 
 class MyUI
 {
@@ -19,7 +20,7 @@ private:
    void createInfoMessages();
 
 public:
-   ~MyUI(){}
+   ~MyUI() {}
    MyUI(){
       createInfoMessages();
       createInsertMessages();

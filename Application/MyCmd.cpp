@@ -1,4 +1,5 @@
 #include "MyCmd.h"
 
-void MyCmd::execute(MyData* d, MyUI* ui){
+void MyCmd::execute(MyData* d, MyUI* ui)
+{
 }
