@@ -7,18 +7,30 @@ void CmdConcatenate::execute(MyData* d, MyUI* ui)
    ListStructure* second= d->getList2();
    int opt= ui->getCurrentOption();
    
-   if(actual != nullptr){
-      if(opt == ui->CONC){
-         if(actual == first)
-            actual->concatenate(second);
-         else if(actual == second)
-            actual->concatenate(first);
+   if (actual != nullptr){
+      if (actual == first){
+         if(actual->concatenate(second))
+            worked(d,ui);
+         else
+            ui->print( ui->getMessage(MyUI::ERROR_CONC));
+      }
+      else if (actual == second){
+         if(actual->concatenate(first))
+            worked(d,ui);
+         else
+         ui->print( ui->getMessage(MyUI::ERROR_CONC));
       }
    }
-     
-   ui->print( ui->getMessage(MyUI::CONCATENATED));
-   ui->print( actual->listToString());
+   else
+      ui->print( ui->getMessage(MyUI::ERROR_CONC));
+   
    system("pause");
    ui->clearScreen();
    ui->manipMenu();
+}
+
+void CmdConcatenate::worked(MyData* d, MyUI* ui)
+{
+   ui->print( ui->getMessage(MyUI::CONCATENATED));
+   ui->print( d->listToString());
 }

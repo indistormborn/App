@@ -47,14 +47,9 @@ bool MyAPP::cmdMainExecute(int menuOption)
    cmd= nullptr;
 
    switch(menuOption){
-   case MyUI::FIRST_LIST:
-      cmd= new CmdChooseList1(); 
-   break;
-   case MyUI::SECOND_LIST:
-      cmd= new CmdChooseList2();
-   break;
-   case MyUI::CLOSE_APP:
-      exit(0);
+   case MyUI::FIRST_LIST : cmd= new CmdChooseList1(); break;
+   case MyUI::SECOND_LIST: cmd= new CmdChooseList2(); break;
+   case MyUI::CLOSE_APP  : exit(0);
    }
 
    if (!cmd)

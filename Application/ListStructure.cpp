@@ -1,6 +1,5 @@
 #include <ostream>
 #include <stdlib.h>
-#include <sstream>
 #include "Nodo.h"
 #include "ListStructure.h"
 
@@ -65,82 +64,105 @@ void ListStructure::add(int v, int pos)
       addBegin(v);
 }
 
-void ListStructure::del(int pos)
+bool ListStructure::del(int pos)
 {
    Nodo *n= search(pos);
 
-   if (n) {
-      Nodo* next= n->getNext();
-      Nodo* prev= n->getPrev();
-      
-      if (next != nullptr)
-         next->setPrev(prev);
-      else
-         last= prev;    
+   //verifica se a lista está vazia
+   if(first){
+      //verifica se a posicao existe na lista
+      if (n) {
+         Nodo* next= n->getNext();
+         Nodo* prev= n->getPrev();
+         
+         if (next != nullptr)
+            next->setPrev(prev);
+         else
+            last= prev;    
 
-      if(prev != nullptr)
-         prev->setNext(next);
-      else
-         first= next;      
+         if(prev != nullptr)
+            prev->setNext(next);
+         else
+            first= next;      
 
-      size--;
-      delete n;
+         size--;
+         delete n;
+         return true;
+      }
    }
-   else 
-      exit(0);
+   return false;
 }
 
 /////////////////////////////////////////////////////////////////////////
 
-void ListStructure::clear()
+bool ListStructure::clear()
 {
-   Nodo *aux;
-
-   while (first) {
-      aux= first->getNext();
-      delete first;
-      first= aux;      
+   Nodo* aux;
+   
+   //verifica se a lista não está vazia
+   if(first != nullptr){
+      while (first) {
+         aux= first->getNext();
+         delete first;
+         first= aux;      
+      }
+      size= 0;
+      first= last= nullptr;
+      return true;
    }
-
-   size= 0;
-   first= last= nullptr;
+   return false;
 }
 
-void ListStructure::bubblesort()
+bool ListStructure::bubblesort()
 {
    Nodo* actual;
    int countLaco1= size;
 
-   while (countLaco1 > 0) {
-      int countLaco2= countLaco1 - 1;
-      actual= first;
-      while (countLaco2 > 0) {
-         Nodo* auxNext= actual->getNext();
-         if (actual->getValue() > auxNext->getValue()) {
-            int temp= actual->getValue();
-            actual->setValue(auxNext->getValue());
-            auxNext->setValue(temp);
+   //verifica se a lista não está vazia
+   if(first != nullptr){
+      while (countLaco1 > 0) {
+         int countLaco2= countLaco1 - 1;
+         actual= first;
+         while (countLaco2 > 0) {
+            Nodo* auxNext= actual->getNext();
+            if (actual->getValue() > auxNext->getValue()) {
+               int temp= actual->getValue();
+               actual->setValue(auxNext->getValue());
+               auxNext->setValue(temp);
+            }
+            actual= auxNext;
+            countLaco2--;
          }
-         actual= auxNext;
-         countLaco2--;
+         countLaco1--;
       }
-      countLaco1--;
+      return true;
    }
+   //caso a lista esteja vazia, retorna falso
+   return false;
 }
 
-void ListStructure::concatenate(ListStructure* l)
+bool ListStructure::concatenate(ListStructure* l)
 {
-   Nodo *n= l->getFirst();
+   Nodo* firstNodo= l->getFirst();
 
+   //verifica se a lista passada como entrada foi instanciada 
    if (l != nullptr){
-      if ((first != nullptr) && (l->getFirst() != nullptr)) {
-         last->setNext(l->getFirst());
+
+      //verifica se a lista atual e a lista passada como parametro estÃ£o vazias 
+      if ((first != nullptr) && (firstNodo != nullptr)) {
+         last->setNext(firstNodo);
+         firstNodo->setPrev(last);
          last= l->getLast();
          size= size + l->getSize();
+         
+         l->setSizeToZero();
+         l->setFirst(nullptr);
+         l->setLast(nullptr);
+
+         return true;
       }
-      l->setFirst(nullptr);
-      l->setLast(nullptr);
-   }   
+   } 
+   return false; 
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -152,8 +174,6 @@ Nodo * ListStructure::searchForward(int pos)
    if ((pos <= size) && (pos > 0)) {
       n= first;
       for (int i= 1 ; i < pos ; i++) {
-         if (n->getNext() == nullptr)
-            break;
          n= n->getNext();
       }
    }   
@@ -168,8 +188,6 @@ Nodo* ListStructure::searchBackward(int pos)
    if ((pos <= size) && (pos > 0)){
       n= last;
       for (int i= size; i > pos; i--){
-         if(n->getPrev() == nullptr)
-            break;
          n= n->getPrev();
       }  
    }
@@ -187,41 +205,4 @@ Nodo* ListStructure::search(int pos)
    else if (pos <= meio)
       n= searchForward(pos);
    return n;
-}
-
-/////////////////////////////////////////////////////////////////////////
-
-std::string ListStructure::listToString()
-{
-   Nodo* n= first;
-   std::stringstream ss;
-   for (int i= 0; i < size; i++){
-      int v= n->getValue();
-      
-      ss << v << ", ";
-      
-      if (n->getNext() == nullptr)
-         break;
-
-      n= n->getNext();
-   }
-   
-   return ss.str();
-}
-
-std::string ListStructure::listToStringBack()
-{
-   Nodo* n= last;
-   std::stringstream ss;
-   for (int i= size; i > 0; i++){
-      int v= n->getValue();
-      
-      ss<<v<<", ";
-      
-      if(n->getPrev() == nullptr)
-         break;
-      n= n->getPrev();
-   }
-   
-   return ss.str();
 }

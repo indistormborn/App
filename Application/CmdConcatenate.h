@@ -8,6 +8,7 @@ class CmdConcatenate : public MyCmd
 public:
    virtual ~CmdConcatenate(){}
    virtual void execute(MyData* d, MyUI* ui);
+   void worked(MyData* d, MyUI* ui);
 };
 
 #endif //INCLUDED_CMDCONCATENATE_H

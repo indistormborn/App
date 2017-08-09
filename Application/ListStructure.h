@@ -29,24 +29,24 @@ public:
    
    void setLast(Nodo* nodo) { last= nodo; }
    void setFirst(Nodo* nodo) { first= nodo; }
-  
+   void setSizeToZero() { size= 0; }
+
    int getSize() { return size; }
 
-   Nodo* getLast() {return last;}
-   Nodo* getFirst() {return first;}
+   Nodo* getLast() { return last; }
+   Nodo* getFirst() { return first; }
 
    void add(int v) { addEnd(v); }
    void add(int v, int pos);
-   void del(int pos);
+   
+   bool del(int pos);
 
-   void bubblesort();
-   void clear();
-   void concatenate(ListStructure*);
+   bool clear();
+   bool bubblesort();
+   bool concatenate(ListStructure*);
 
    Nodo* search(int pos);
 
-   std::string listToString();
-   std::string listToStringBack();
 };
 
 #endif //INCLUDED_LISTSTRUCTURE_H

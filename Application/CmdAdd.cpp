@@ -18,7 +18,7 @@ void CmdAdd::execute(MyData* d, MyUI* ui)
    }
 
    ui->print( ui->getMessage(MyUI::VALUE_ADD) );
-   ui->print( list->listToString());
+   ui->print( d->listToString());
    system("pause");
    ui->clearScreen();
    ui->manipMenu();

@@ -59,9 +59,11 @@ void MyUI::manipMenu()
 
 void MyUI::createErrorMessages()
 {
-   errMsgs[ERROR_DEL]= "AVISO: impossivel deletar, posicao informada nao existe na lista \n";
-   errMsgs[ERROR_SET]= "Posicao a ser atualizada nao existe na lista \n";
-   errMsgs[ERROR_GET]= "Posicao a ser consultada nao existe na lista \n";
+   errMsgs[ERROR_DEL]= "Impossivel deletar! Posicao informada nao existe na lista ou a lista esta vazia \n";
+   errMsgs[ERROR_PRINT]= "Nenhum elemento a ser impresso pois a lista esta vazia! \n";
+   errMsgs[ERROR_CLEAR]= "IMPOSSIVEL esvaziar uma lista que ja esta vazia \n";
+   errMsgs[ERROR_ORD]= "IMPOSSIVEL ordenar uma lista vazia \n";
+   errMsgs[ERROR_CONC]= "IMPOSSIVEL concatenar pois uma das listas esta vazia";
    errMsgs[ERROR_OPTION]= "Opcao invalida! Insira outra:  \n";
 }
 
@@ -88,13 +90,13 @@ void MyUI::createInfoMessages(){
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 std::string MyUI::getMessage(int value){
-   //10,11,12,13
-   if(value >= 10 && value < 20){
+   //10,11,12,13,14,15
+   if(value >= 10 && value <=15){
       if ( errMsgs.find(value) != errMsgs.end())
          return errMsgs.find(value)->second;
    }
   //20,21,22
-   else if(value >=20 && value < 30){
+   else if(value >=20 && value <= 22){
       if ( insMsgs.find(value) != insMsgs.end())
          return insMsgs.find(value)->second;
    }

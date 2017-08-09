@@ -8,6 +8,7 @@ class CmdPrint : public MyCmd
 public:
    virtual ~CmdPrint(){}
    virtual void execute(MyData* d, MyUI* ui);
+   bool verifyString(MyData* d);
 };
 
 #endif //INCLUDED_CMDPRINT_H

@@ -9,7 +9,7 @@ void CmdSort::execute(MyData* d, MyUI* ui)
          list->bubblesort();
 
    ui->print( ui->getMessage(MyUI::ORD_LIST));
-   ui->print( list->listToString());
+   ui->print( d->listToString());
    system("pause");
    ui->clearScreen();
    ui->manipMenu();

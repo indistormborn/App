@@ -8,19 +8,27 @@ void CmdDel::execute(MyData* d, MyUI* ui)
 
    if(opt == MyUI::DEL_POS){
       pos= ui->getMenuOption(ui->INSERT_P);
-      list->del(pos);
-      ui->print( ui->getMessage(MyUI::POS_REMOVED));
+      if (list->del(pos))
+         ui->print( ui->getMessage(MyUI::POS_REMOVED));
+      else
+         ui->print( ui->getMessage(MyUI::ERROR_DEL));
    }
+
    else if(opt == MyUI::DEL_BEG){
-      list->del(1);
-      ui->print( ui->getMessage(MyUI::BEG_EXCLUDED));
+      if (list->del(1))
+         ui->print( ui->getMessage(MyUI::BEG_EXCLUDED));
+      else
+         ui->print( ui->getMessage(MyUI::ERROR_DEL));
    }
+
    else if(opt == MyUI::DEL_END){
-      list->del( list->getSize() );
-      ui->print( ui->getMessage(MyUI::END_EXCLUDED));
+      if (list->del(list->getSize()))
+         ui->print( ui->getMessage(MyUI::END_EXCLUDED));
+      else
+         ui->print( ui->getMessage(MyUI::ERROR_DEL));
    }
    
-   ui->print( list->listToString());
+   ui->print( d->listToString());
    system("pause");
    ui->clearScreen();
    ui->manipMenu();
